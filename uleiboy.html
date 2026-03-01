@@ -690,25 +690,25 @@
   <div class="how-grid">
     <div class="how-card fade-in">
       <div class="how-number">01</div>
-      <div class="how-icon">📱</div>
+      
       <h3>Programează</h3>
       <p>Sună-ne sau trimite un mesaj. Îți oferim o fereastră orară convenabilă pentru tine.</p>
     </div>
     <div class="how-card fade-in">
       <div class="how-number">02</div>
-      <div class="how-icon">🚐</div>
+      
       <h3>Venim la tine</h3>
       <p>Tehnicianul nostru ajunge la adresa ta din Cluj-Napoca cu toate echipamentele necesare.</p>
     </div>
     <div class="how-card fade-in">
       <div class="how-number">03</div>
-      <div class="how-icon">⚙️</div>
+      
       <h3>Schimbăm uleiul</h3>
       <p>Lucrare profesională în circa 30 de minute. Ulei de calitate, filtru nou, totul corect.</p>
     </div>
     <div class="how-card fade-in">
       <div class="how-number">04</div>
-      <div class="how-icon">✅</div>
+      
       <h3>Gata de drum</h3>
       <p>Îți prezentăm lucrarea efectuată, îți eliberăm bon și mașina ta e gata de mers.</p>
     </div>
@@ -876,7 +876,15 @@
 
   // Form submit
   function handleSubmit() {
-    alert('Mulțumim! Te vom contacta în curând pentru confirmare.\n\nAlternativ, ne poți suna direct la: 0746 460 038');
+    const nume = document.querySelector('input[placeholder="ex: Ion Popescu"]').value || 'Necunoscut';
+    const telefon = document.querySelector('input[type="tel"]').value || '-';
+    const masina = document.querySelector('input[placeholder="ex: Dacia Logan, BMW X5..."]').value || '-';
+    const data = document.querySelector('input[type="date"]').value || '-';
+    const mesaj = document.querySelector('textarea').value || '-';
+
+    const text = `Programare noua UleiBoy\n\nNume: ${nume}\nTelefon: ${telefon}\nMasina: ${masina}\nData dorita: ${data}\nMesaj: ${mesaj}`;
+    const encoded = encodeURIComponent(text);
+    window.open(`https://wa.me/40746460038?text=${encoded}`, '_blank');
   }
 
   // Smooth scroll for nav links
